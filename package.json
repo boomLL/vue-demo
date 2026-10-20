@@ -6,14 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "patch-package"
   },
   "dependencies": {
-    "tdesign-mobile-vue": "^1.8.2",
+    "tdesign-mobile-vue": "^1.16.2",
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "patch-package": "^8.0.1",
     "typescript": "^5.4.5",
     "vite": "^5.2.8",
     "vue-tsc": "^2.0.13"
