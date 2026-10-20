@@ -101,10 +101,10 @@ index 96336ed..6697dd3 100644
        }
      };
 diff --git a/node_modules/tdesign-mobile-vue/es/pull-down-refresh/useTouch.mjs b/node_modules/tdesign-mobile-vue/es/pull-down-refresh/useTouch.mjs
-index a29cfc2..adb0db3 100644
+index a29cfc2..2bd87a1 100644
 --- a/node_modules/tdesign-mobile-vue/es/pull-down-refresh/useTouch.mjs
 +++ b/node_modules/tdesign-mobile-vue/es/pull-down-refresh/useTouch.mjs
-@@ -55,18 +55,46 @@ function getScrollParent(node) {
+@@ -55,17 +55,46 @@ function getScrollParent(node) {
    while (res && isElement(res)) {
      var style = window.getComputedStyle(res);
      var isScrollableY = /auto|scroll/i.test(style.overflowY);
@@ -132,7 +132,6 @@ index a29cfc2..adb0db3 100644
  var isReachTop = function isReachTop(e) {
    var scrollParent = getScrollParent(e.target);
 -  return !scrollParent || !scrollParent.scrollTop;
--};
 +  if (!scrollParent) {
 +    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 +    var result = scrollTop <= 0;
@@ -152,9 +151,9 @@ index a29cfc2..adb0db3 100644
 +    isReachTop结果: !scrollParent.scrollTop,
 +  });
 +  return !scrollParent.scrollTop;
+ };
  
  export { easeDistance, getScrollParent, isReachTop, useTouch };
- //# sourceMappingURL=useTouch.mjs.map
 diff --git a/node_modules/tdesign-mobile-vue/esm/pull-down-refresh/useTouch.js b/node_modules/tdesign-mobile-vue/esm/pull-down-refresh/useTouch.js
 index b902d35..b5cdf82 100644
 --- a/node_modules/tdesign-mobile-vue/esm/pull-down-refresh/useTouch.js
